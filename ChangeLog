@@ -1,5 +1,7 @@
 2021-02-06  Dirk Eddelbuettel  <edd@debian.org>
 
+	* R/init.R: Refactored to be usable when either attached or loaded
+
 	* README.md: Added
 	* docs/spy.png: Idem
 	* .github/workflows/ci.yaml: Idem

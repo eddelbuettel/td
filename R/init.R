@@ -17,10 +17,9 @@
 ##
 ##  You should have received a copy of the GNU General Public License
 ##  along with td.  If not, see <http://www.gnu.org/licenses/>.
-
 .pkgenv <- new.env(parent=emptyenv())
 
-.default_file <- function() {
+.defaultFile <- function() {
     tddir <- tools::R_user_dir("td")
     if (dir.exists(tddir)) {
         fname <- file.path(tddir, "api.dcf")
@@ -31,25 +30,34 @@
     return("")
 }
 
-.onAttach <- function(libname, pkgname) {
-    packageStartupMessage("Attaching td version ", utils::packageVersion("td"), ". ", appendLF=FALSE)
+.getKeyIntoPkgEnv <- function(silent=TRUE) {
     .pkgenv[["api"]] <- ""
-    fname <- .default_file()
+    fname <- .defaultFile()
     if (fname != "") {
         res <- read.dcf(fname)
         if (!is.na(match("key", colnames(res)))) {
             .pkgenv[["api"]] <- res[[1, "key"]]
-            packageStartupMessage("Using API key from config file.")
+            if (!silent) packageStartupMessage("Setting API key from config file.")
         } else {
-            packageStartupMessage("API key file found but no api entry.")
+            if (!silent) packageStartupMessage("API key file found but no api entry.")
         }
     } else if ((ev <- Sys.getenv("TWELVEDATA_API_KEY")) != "") {
         .pkgenv[["api"]] <- ev
-        packageStartupMessage("Using API key from environment variable.")
+        if (!silent) packageStartupMessage("Setting API key from environment variable.")
     } else {
-        packageStartupMessage("No config file or environment variable found: API access unlikely.")
+        if (!silent) packageStartupMessage(paste("No config file or environment variable",
+                                                 "found: API access unlikely."))
     }
 
-    #.pkgenv[["anytime"]] <- requireNamespace("anytime", quietly=TRUE)
-    #.pkgenv[["xts"]] <- requireNamespace("xts", quietly=TRUE)
+}
+
+## called when functions get accessed directly; messages are prohibited
+.onLoad <- function(libname, pkgname) {
+    .getKeyIntoPkgEnv(silent=TRUE)
+}
+
+## called when the package is attached explicitly, messages permitted via packageStartupMessages()
+.onAttach <- function(libname, pkgname) {
+    packageStartupMessage("Attaching td version ", utils::packageVersion("td"), ". ", appendLF=FALSE)
+    .getKeyIntoPkgEnv(silent=FALSE)
 }

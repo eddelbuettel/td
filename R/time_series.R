@@ -65,7 +65,8 @@ time_series <- function(sym,
     res <- RcppSimdJson::fload(qry)
     if (res$status != "ok") stop(res$message, call. = FALSE)
 
-    if (as == "raw") return(res)
+    if (as == "raw")
+        return(res)
 
     dat <- res$values
     if (requireNamespace("anytime", quietly=TRUE)) {
