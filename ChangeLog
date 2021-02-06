@@ -2,6 +2,7 @@
 
 	* README.md: Added
 	* docs/spy.png: Idem
+	* .github/workflows/ci.yaml: Idem
 
 2021-02-05  Dirk Eddelbuettel  <edd@debian.org>
 

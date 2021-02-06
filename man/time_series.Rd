@@ -45,9 +45,12 @@ respect to \emph{multiple} symbols in one request. We expect to expand the funct
 }
 \examples{
 \dontrun{  # requires API key
-data <- time_series("SPY", "5min", 500, "xts")
+Sys.setenv(`_R_S3_METHOD_REGISTRATION_NOTE_OVERWRITES_`="false") # suppress load noise
+#data <- time_series("SPY", "5min", 500, "xts")
+data <- readRDS("/tmp/data.rds")
 if (requireNamespace("quantmod", quietly=TRUE))
-   chartSeries(data)  # convenient plot function for OHLCV data
+   suppressMessages(library(quantmod))   # suppress some noise
+   chartSeries(data, name="SPY", theme="white")  # convenient plot for OHLCV
 }
 }
 \seealso{

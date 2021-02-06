@@ -37,9 +37,11 @@
 ##' @seealso \url{https://twelvedata.com/docs}
 ##' @examples
 ##' \dontrun{  # requires API key
+##' Sys.setenv(`_R_S3_METHOD_REGISTRATION_NOTE_OVERWRITES_`="false") # suppress load noise
 ##' data <- time_series("SPY", "5min", 500, "xts")
 ##' if (requireNamespace("quantmod", quietly=TRUE))
-##'    chartSeries(data)  # convenient plot function for OHLCV data
+##'    suppressMessages(library(quantmod))   # suppress some noise
+##'    chartSeries(data, name="SPY", theme="white")  # convenient plot for OHLCV
 ##' }
 ##' @author Dirk Eddelbuettel
 time_series <- function(sym,
@@ -64,7 +66,6 @@ time_series <- function(sym,
     if (as == "raw") return(res)
 
     df <- res$value
-    print(class(df))
     if (requireNamespace("anytime", quietly=TRUE)) {
         if (grepl(".*(min|h)$", interval)) {
             df[, 1] <- anytime::anytime(df[, 1])
