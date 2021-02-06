@@ -52,6 +52,9 @@ if (requireNamespace("quantmod", quietly=TRUE))
    suppressMessages(library(quantmod))   # suppress some noise
    chartSeries(data, name=attr(data, "symbol"), theme="white")  # convenient plot for OHLCV
    str(data) # compact view of data and meta data
+
+   cadusd <- time_series(sym="CAD/USD", interval="1week", outputsize=52.25*20, as="xts")
+   chart_Series(cadusd, name=attr(data, "symbol"))
 }
 }
 \seealso{

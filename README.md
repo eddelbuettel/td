@@ -22,7 +22,7 @@ Running the code from `example(time_series)`
 > data <- time_series("SPY", "5min", 500, "xts")
 > if (requireNamespace("quantmod", quietly=TRUE)) {
 >     suppressMessages(library(quantmod))   # suppress some noise
->     chartSeries(data, attr(data, "symbol"), theme="white")  # convenient plot for OHLCV
+>     chartSeries(data, name=attr(data, "symbol"), theme="white")  # convenient plot for OHLCV
 > }
 ```
 
@@ -30,6 +30,42 @@ retrieves an `xts` object (provided [xts](https://cran.r-project.org/package=xts
 and produces a chart like this:
 
 ![](docs/spy.png)
+
+The package can also be used without attaching it. The next example retrieves twenty years of weekly
+CAD/USD foreign exchange data using a direct `td::time_series()` call with having the package
+loaded.  The API key is automagically set (if it is in fact provided either in the user config file
+or as an environment variable).  Also shown by calling `str()` on the return object is the metadata
+attach after each request:
+
+```r
+> cadusd <- td::time_series(sym="CAD/USD", interval="1week", outputsize=52.25*20, as="xts")
+> str(cadusd)
+An ‘xts’ object on 2001-02-27/2021-02-01 containing:
+  Data: num [1:1045, 1:4] 0.651 0.646 0.644 0.638 0.642 ...
+ - attr(*, "dimnames")=List of 2
+  ..$ : NULL
+  ..$ : chr [1:4] "open" "high" "low" "close"
+  Indexed by objects of class: [Date] TZ: UTC
+  xts Attributes:  
+List of 6
+ $ symbol        : chr "CAD/USD"
+ $ interval      : chr "1week"
+ $ currency_base : chr "Canadian Dollar"
+ $ currency_quote: chr "US Dollar"
+ $ type          : chr "Physical Currency"
+ $ accessed      : chr "2021-02-06 15:16:29.209635"
+> 
+```
+
+As before, it can be plotted using a function from package
+[quantmod](https://cran.r-project.org/package=quantmod); this time we use the newer
+`chart_Series()`:
+
+```r
+> quantmod::chart_Series(cadusd, name=attr(data, "symbol"))
+```
+
+![](docs/cadusd.png)
 
 ### Status
 
