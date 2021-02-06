@@ -30,7 +30,8 @@ directory provided by \code{tools::R_user_dir}, or the \code{TWELVEDATA_API_KEY}
 The requested data is returned in the requested format containing columns for
 data(time), open, high, low, close, and volume. If the request was unsuccessful,
 an error message is returned. The date or datetime column is returned parsed using
-\code{anytime} if the package is installed.
+\code{anytime} if the package is installed. Additional meta data returned from the query
+is also provided as attributes
 }
 \description{
 Retrieve Time Series Data from \sQuote{twelvedata}
@@ -46,11 +47,11 @@ respect to \emph{multiple} symbols in one request. We expect to expand the funct
 \examples{
 \dontrun{  # requires API key
 Sys.setenv(`_R_S3_METHOD_REGISTRATION_NOTE_OVERWRITES_`="false") # suppress load noise
-#data <- time_series("SPY", "5min", 500, "xts")
-data <- readRDS("/tmp/data.rds")
+data <- time_series("SPY", "5min", 500, "xts")
 if (requireNamespace("quantmod", quietly=TRUE))
    suppressMessages(library(quantmod))   # suppress some noise
-   chartSeries(data, name="SPY", theme="white")  # convenient plot for OHLCV
+   chartSeries(data, name=attr(data, "symbol"), theme="white")  # convenient plot for OHLCV
+   str(data) # compact view of data and meta data
 }
 }
 \seealso{

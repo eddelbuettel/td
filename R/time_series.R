@@ -33,7 +33,8 @@
 ##' @return The requested data is returned in the requested format containing columns for
 ##' data(time), open, high, low, close, and volume. If the request was unsuccessful,
 ##' an error message is returned. The date or datetime column is returned parsed using
-##' \code{anytime} if the package is installed.
+##' \code{anytime} if the package is installed. Additional meta data returned from the query
+##' is also provided as attributes
 ##' @seealso \url{https://twelvedata.com/docs}
 ##' @examples
 ##' \dontrun{  # requires API key
@@ -41,7 +42,8 @@
 ##' data <- time_series("SPY", "5min", 500, "xts")
 ##' if (requireNamespace("quantmod", quietly=TRUE))
 ##'    suppressMessages(library(quantmod))   # suppress some noise
-##'    chartSeries(data, name="SPY", theme="white")  # convenient plot for OHLCV
+##'    chartSeries(data, name=attr(data, "symbol"), theme="white")  # convenient plot for OHLCV
+##'    str(data) # compact view of data and meta data
 ##' }
 ##' @author Dirk Eddelbuettel
 time_series <- function(sym,
@@ -65,22 +67,21 @@ time_series <- function(sym,
 
     if (as == "raw") return(res)
 
-    df <- res$value
+    dat <- res$values
     if (requireNamespace("anytime", quietly=TRUE)) {
         if (grepl(".*(min|h)$", interval)) {
-            df[, 1] <- anytime::anytime(df[, 1])
+            dat[, 1] <- anytime::anytime(dat[, 1])
         } else {
-            df[, 1] <- anytime::anydate(df[, 1])
+            dat[, 1] <- anytime::anydate(dat[, 1])
         }
     }
-    for (i in seq(2, ncol(df))) {
-        df[, i] <- as.numeric(df[,i])
+    for (i in seq(2, ncol(dat))) {
+        dat[, i] <- as.numeric(dat[,i])
     }
-    for (n in names(res$meta)) attr(df, n) <- res$meta[[n]]
-    attr(df, "accessed") <- format(Sys.time())
     if (as == "xts" && requireNamespace("xts", quietly=TRUE)) {
-        xts::xts(df[,-1], order.by=df[,1])
-    } else {
-        df
+        dat <- xts::xts(dat[,-1], order.by=dat[,1])
     }
+    for (n in names(res$meta)) attr(dat, n) <- res$meta[[n]]
+    attr(dat, "accessed") <- format(Sys.time())
+    dat
 }
