@@ -1,0 +1,16 @@
+Package: td
+Type: Package
+Title: Access to the 'twelvedata' Financial Data API
+Version: 0.0.1
+Date: 2021-02-06
+Author: Dirk Eddelbuettel
+Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Description: The 'twelvedata' REST service offers access to current and historical
+ data on stocks, forex, crypto and other financial assets from anywhere at any time.
+ See <https://twelvedata.com/> for details, to create an account, and to request an
+ API key for free-but-limited access to data.
+License: GPL (>= 2)
+Imports: RcppSimdJson
+Suggests: tinytest, xts, anytime
+Encoding: UTF-8
+RoxygenNote: 6.0.1
