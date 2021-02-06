@@ -1,0 +1,12 @@
+2021-02-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Added
+	* docs/spy.png: Idem
+
+2021-02-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Initial version
+	* NAMESPACE: Ditto
+	* R/time_series.R: Basic accessor
+	* R/init.R: Cache key from either config file or env var
+	* man/*: Initial documentation
