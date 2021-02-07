@@ -6,6 +6,8 @@
 
 	* DESCRIPTION: Removed Suggests: on package anytime
 
+	* inst/tinytest/test_td.R: Minimal testing
+
 2021-02-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R: Refactored to be usable when either attached or loaded
