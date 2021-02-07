@@ -51,12 +51,14 @@
 ##' that the IANA timezone values are case-sensitive. Note that intra-day data is converted to
 ##' an R datetime object (the standard \code{POSIXct} type) using the exchange timestamp in
 ##' the returned metadata, if present.
-##' @param start_date (optional, character) The beginning of the time window for which data
-##' is requested, can be used with or without \code{end_date}. The format must be a standard
-##' ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31 08:30:00}.
-##' @param end_date (optional, character) The end of the time window for which data
-##' is requested, can be used with or without \code{start_date}. The format must be a standard
-##' ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31 08:30:00}.
+##' @param start_date (optional, character or date(time) type) The beginning of the time window
+##' for which data is requested, can be used with or without \code{end_date}. The format must be
+##' a standard ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31 08:30:00}, or
+##' a \code{Date} or \code{POSIXt} object.
+##' @param end_date (optional, character or date(time) type) The end of the time window for
+##' which data is requested, can be used with or without \code{start_date}. The format must be a
+##' standard ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31 08:30:00}, or
+##' a \code{Date} or \code{POSIXt} object.
 ##' @param previous_close (optional, boolean) A logical switch to select inclusion of the
 ##' previous close value, defaults to \code{FALSE}.
 ##' @param apikey (optional character) An API key override, if missing a value cached from
@@ -106,6 +108,11 @@ time_series <- function(sym,
     as <- match.arg(as)
     type <- match.arg(type)
     order <- match.arg(order)
+
+    if (inherits(start_date, "Date")) start_date <- format(start_date, "%Y-%m-%d")
+    if (inherits(end_date, "Date")) end_date <- format(end_date, "%Y-%m-%d")
+    if (inherits(start_date, "POSIXt")) start_date <- format(start_date, "%Y-%m-%d %H:%M:%S")
+    if (inherits(end_date, "POSIXt")) end_date <- format(end_date, "%Y-%m-%d %H:%M:%S")
 
     qry <- paste0(.baseurl, "?",
                   "symbol=", sym,
