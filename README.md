@@ -73,8 +73,8 @@ minute-resolution data for `GME` during the late January / early February period
 
 ```r
 > gme <- time_series("GME", "1min",
-+                    start_date="2021-01-25T09:30:00",
-+                    end_date="2021-02-04T16:00:00", as="xts")
++                    start_date="2021-01-25 09:30:00",
++                    end_date="2021-02-04 16:00:00", as="xts")
 ```
 
 Note the use of exchange timestamps (NYSE is open from 9:30 to 16:00 local time).

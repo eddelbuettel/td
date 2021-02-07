@@ -53,12 +53,10 @@
 ##' the returned metadata, if present.
 ##' @param start_date (optional, character) The beginning of the time window for which data
 ##' is requested, can be used with or without \code{end_date}. The format must be a standard
-##' ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31T08:30:00}. If an
-##' intra-day datetime is specified, use the \code{T} separator, not a space.
+##' ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31 08:30:00}.
 ##' @param end_date (optional, character) The end of the time window for which data
 ##' is requested, can be used with or without \code{start_date}. The format must be a standard
-##' ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31T08:30:00}. If an
-##' intra-day datetime is specified, use the \code{T} separator, not a space.
+##' ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31 08:30:00}.
 ##' @param previous_close (optional, boolean) A logical switch to select inclusion of the
 ##' previous close value, defaults to \code{FALSE}.
 ##' @param apikey (optional character) An API key override, if missing a value cached from
@@ -120,8 +118,8 @@ time_series <- function(sym,
     if (dp != 5) qry <- paste0(qry, "&dp=", dp)
     if (order != "ASC") qry <- paste0(qry, "&order=", order)
     if (!is.na(timezone)) qry <- paste0(qry, "&timezone=", timezone)
-    if (!is.na(start_date)) qry <- paste0(qry, "&start_date=", start_date)
-    if (!is.na(end_date)) qry <- paste0(qry, "&end_date=", end_date)
+    if (!is.na(start_date)) qry <- paste0(qry, "&start_date=", gsub("\\s", "%20", start_date))
+    if (!is.na(end_date)) qry <- paste0(qry, "&end_date=", gsub("\\s", "%20", end_date))
     if (previous_close) qry <- paste0(qry, "&previous_close=true")
 
     res <- RcppSimdJson::fload(qry)

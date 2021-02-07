@@ -53,13 +53,11 @@ the returned metadata, if present.}
 
 \item{start_date}{(optional, character) The beginning of the time window for which data
 is requested, can be used with or without \code{end_date}. The format must be a standard
-ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31T08:30:00}. If an
-intra-day datetime is specified, use the \code{T} separator, not a space.}
+ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31 08:30:00}.}
 
 \item{end_date}{(optional, character) The end of the time window for which data
 is requested, can be used with or without \code{start_date}. The format must be a standard
-ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31T08:30:00}. If an
-intra-day datetime is specified, use the \code{T} separator, not a space.}
+ISO 8601 format such as \dQuote{2020-12-31} or \dQuote{2020-12-31 08:30:00}.}
 
 \item{previous_close}{(optional, boolean) A logical switch to select inclusion of the
 previous close value, defaults to \code{FALSE}.}
