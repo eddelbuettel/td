@@ -19,7 +19,7 @@ Here we are running (some) code from shown in `example(time_series)`
 
 ```r
 > library(td)
-> data <- time_series("SPY", "5min", 500, "xts")
+> data <- time_series("SPY", "5min", outputsize=500, as="xts")
 > if (requireNamespace("quantmod", quietly=TRUE)) {
 >     suppressMessages(library(quantmod))   # suppress some noise
 >     chartSeries(data, name=attr(data, "symbol"), theme="white")  # convenient plot for OHLCV

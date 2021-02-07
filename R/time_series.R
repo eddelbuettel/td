@@ -73,7 +73,7 @@
 ##' @examples
 ##' \dontrun{  # requires API key
 ##' Sys.setenv(`_R_S3_METHOD_REGISTRATION_NOTE_OVERWRITES_`="false") # suppress load noise
-##' data <- time_series("SPY", "5min", 500, "xts")
+##' data <- time_series("SPY", "5min", outputsize=500, as="xts")
 ##' if (requireNamespace("quantmod", quietly=TRUE))
 ##'    suppressMessages(library(quantmod))   # suppress some noise
 ##'    chartSeries(data, name=attr(data, "symbol"), theme="white")  # convenient plot for OHLCV
@@ -81,6 +81,10 @@
 ##'
 ##'    cadusd <- time_series(sym="CAD/USD", interval="1week", outputsize=52.25*20, as="xts")
 ##'    chart_Series(cadusd, name=attr(data, "symbol"))
+##'
+##'    gme <- time_series("GME", "1min", start_date="2021-01-25T09:30:00",
+##'                        end_date="2021-02-04T16:00:00", as="xts")
+##'    chart_Series(gme, name=paste0(attr(gme, "symbol"), "/", attr(gme, "exchange")))
 ##' }
 ##' @author Dirk Eddelbuettel
 time_series <- function(sym,
