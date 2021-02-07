@@ -1,3 +1,11 @@
+2021-02-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/time_series.R (time_series): Signficantly extended by supporting
+	essentially all optional arguments in API, simplified time parsing
+	* man/time_series.Rd: Added documentation
+
+	* DESCRIPTION: Removed Suggests: on package anytime
+
 2021-02-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R: Refactored to be usable when either attached or loaded
