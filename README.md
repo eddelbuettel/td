@@ -15,7 +15,7 @@ package does that.
 
 ### Example
 
-Running the code from `example(time_series)` 
+Here we are running (some) code from shown in `example(time_series)` 
 
 ```r
 > library(td)
@@ -67,9 +67,45 @@ As before, it can be plotted using a function from package
 
 ![](docs/cadusd.png)
 
+As the returned is a the very common and well-understood [xts] format, many other plotting functions
+can be used as-is. Here is an example also showing how historical data can be accessed.  We retrieve
+minute-resolution data for `GME` during the late January / early February period:
+
+```r
+> gme <- time_series("GME", "1min",
++                    start_date="2021-01-25T09:30:00",
++                    end_date="2021-02-04T16:00:00", as="xts")
+```
+
+Note the use of exchange timestamps (NYSE is open from 9:30 to 16:00 local time).
+
+We can plot this again using `quantmod::chart_Series()` showing how to display ticker symbol
+and exchange as a header:
+
+```r
+> quantmod::chart_Series(gme, name=paste0(attr(gme, "symbol"), "/", attr(gme, "exchange")))
+```
+
+![](docs/gme.png)
+
+Naturally, other plotting functions and packages can be used. Here we use the _same dataset but
+efficiently subset_ using a key `xts` feature and fed into CRAN package
+[rtsplot](https://rtsvizteam.bitbucket.io/pkg/rtsplot/#/) and requesting OHLC instead of line plot.
+
+```r
+> rtsplot::rtsplot(gme["20210128"], main="GME on 2021-Jan-28", type="ohlc")
+```
+
+![](docs/gme_20210128.png)
+
+
 ### Status
 
-Right now the package is brand new and reasonably empty. 
+Still fairly new and fresh.
+
+We also note that the package is not affiliated with [twelvedata](https://www.twelvedata.com). For
+an officially supported package, see their
+[twelvedata-python](https://github.com/twelvedata/twelvedata-python) package.
 
 ### Contributing
 

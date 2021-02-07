@@ -8,6 +8,8 @@
 
 	* inst/tinytest/test_td.R: Minimal testing
 
+	* README.md: Expanded with two more examples
+
 2021-02-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R: Refactored to be usable when either attached or loaded
