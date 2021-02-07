@@ -72,12 +72,13 @@ time_series <- function(sym,
         return(res)
 
     dat <- res$values
-    if (requireNamespace("anytime", quietly=TRUE)) {
-        if (grepl(".*(min|h)$", interval)) {
-            dat[, 1] <- anytime::anytime(dat[, 1])
-        } else {
-            dat[, 1] <- anytime::anydate(dat[, 1])
-        }
+    if (grepl(".*(min|h)$", interval)) {
+        if ("exchange_timezone" %in% names(res$meta))
+            dat[, 1] <- as.POSIXct(dat[, 1], tz=res$meta$exchange_timezone)
+        else
+            dat[, 1] <- as.POSIXct(dat[, 1])
+    } else {
+        dat[, 1] <- as.Date(dat[, 1])
     }
     for (i in seq(2, ncol(dat))) {
         dat[, i] <- as.numeric(dat[,i])

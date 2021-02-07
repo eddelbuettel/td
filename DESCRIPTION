@@ -11,6 +11,6 @@ Description: The 'twelvedata' REST service offers access to current and historic
  API key for free-but-limited access to data.
 License: GPL (>= 2)
 Imports: RcppSimdJson
-Suggests: tinytest, xts, anytime
+Suggests: tinytest, xts
 Encoding: UTF-8
 RoxygenNote: 6.0.1
