@@ -3,6 +3,9 @@
 
 [![CI](https://github.com/eddelbuettel/td/workflows/ci/badge.svg)](https://github.com/eddelbuettel/td/actions?query=workflow%3Aci)
 [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![CRAN](https://www.r-pkg.org/badges/version/td)](https://cran.r-project.org/package=td)
+[![Dependencies](https://tinyverse.netlify.com/badge/td)](https://cran.r-project.org/package=td)
+[![Downloads](https://cranlogs.r-pkg.org/badges/td?color=brightgreen)](https://www.r-pkg.org/pkg/td)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/td)](https://github.com/eddelbuettel/td)
 
 ### Motivation

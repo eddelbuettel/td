@@ -1,3 +1,7 @@
+2021-02-11  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Add CRAN, Dependencies, Download badges
+
 2021-02-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/time_series.R (time_series): Signficantly extended by supporting
