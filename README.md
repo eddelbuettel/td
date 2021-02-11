@@ -32,7 +32,7 @@ Here we are running (some) code from shown in `example(time_series)`
 retrieves an `xts` object (provided [xts](https://cran.r-project.org/package=xts) is installed) 
 and produces a chart like this:
 
-![](docs/spy.png)
+![](https://eddelbuettel.github.io/td/spy.png)
 
 The package can also be used without attaching it. The next example retrieves twenty years of weekly
 CAD/USD foreign exchange data using a direct `td::time_series()` call with having the package
@@ -68,7 +68,7 @@ As before, it can be plotted using a function from package
 > quantmod::chart_Series(cadusd, name=attr(data, "symbol"))
 ```
 
-![](docs/cadusd.png)
+![](https://eddelbuettel.github.io/td/cadusd.png)
 
 As the returned is a the very common and well-understood [xts] format, many other plotting functions
 can be used as-is. Here is an example also showing how historical data can be accessed.  We retrieve
@@ -89,7 +89,7 @@ and exchange as a header:
 > quantmod::chart_Series(gme, name=paste0(attr(gme, "symbol"), "/", attr(gme, "exchange")))
 ```
 
-![](docs/gme.png)
+![](https://eddelbuettel.github.io/td/gme.png)
 
 Naturally, other plotting functions and packages can be used. Here we use the _same dataset but
 efficiently subset_ using a key `xts` feature and fed into CRAN package
@@ -99,7 +99,7 @@ efficiently subset_ using a key `xts` feature and fed into CRAN package
 > rtsplot::rtsplot(gme["20210128"], main="GME on 2021-Jan-28", type="ohlc")
 ```
 
-![](docs/gme_20210128.png)
+![](https://eddelbuettel.github.io/td/gme_20210128.png)
 
 
 ### Status
