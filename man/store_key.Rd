@@ -25,6 +25,11 @@ file or directory permissions are set explicitly or changed. As an
 alternative the key can also be set in the environment variable
 \code{TWELVEDATA_API_KEY} but doing so is the responsibility of the user.
 }
+\note{
+This function requires R version 4.0.0 or later to utilise the per-user
+config directory accessor function. For older R versions, please use the alternate
+approach of storying the API in the environment variable \code{TWELVEDATA_API_KEY}.
+}
 \author{
 Dirk Eddelbuettel
 }

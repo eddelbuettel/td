@@ -7,12 +7,19 @@
 ##' file or directory permissions are set explicitly or changed. As an
 ##' alternative the key can also be set in the environment variable
 ##' \code{TWELVEDATA_API_KEY} but doing so is the responsibility of the user.
+##'
+##' @note This function requires R version 4.0.0 or later to utilise the per-user
+##' config directory accessor function. For older R versions, please use the alternate
+##' approach of storying the API in the environment variable \code{TWELVEDATA_API_KEY}.
 ##' @title Store API key
 ##' @param apikey A character variable with the API key
 ##' @return \code{TRUE} is return invisibly but the function is invoked for the
 ##' side effect of storing the API key.
 ##' @author Dirk Eddelbuettel
 store_key <- function(apikey) {
+    if (R.version.string < "4.0.0")
+        stop("This function relies on R version 4.0.0 or later.", call. = FALSE)
+
     tddir <- tools::R_user_dir("td")
     if (!dir.exists(tddir))
         dir.create(tddir)

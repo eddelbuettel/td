@@ -67,7 +67,8 @@ previous close value, defaults to \code{FALSE}.}
 
 \item{apikey}{(optional character) An API key override, if missing a value cached from
 package startup is used. The startup looks for either a file in the per-package config
-directory provided by \code{tools::R_user_dir}, or the \code{TWELVEDATA_API_KEY} variable.}
+directory provided by \code{tools::R_user_dir} (for R 4.0.0 or later), or the
+\code{TWELVEDATA_API_KEY} variable.}
 }
 \value{
 The requested data is returned in the requested format containing columns for

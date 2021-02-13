@@ -6,6 +6,14 @@
 	* R/key.R (store_key): New helper function
  	* man/store_key.Rd: Documentation
 
+	* R/init.R (.defaultFile): Condition use of tools::R_user_dir() on
+	having R version 4.0.0 or later.
+	* R/key.R (store_key): Idem
+	* R/time_series.R: Document need for R 4.0.0 or later for file-based
+	configuration setting
+	* man/store_key.Rd: Idem
+	* man/time_series.Rd: Idem
+
 2021-02-11  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Add CRAN, Dependencies, Download badges

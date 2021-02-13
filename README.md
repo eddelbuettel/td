@@ -102,6 +102,16 @@ efficiently subset_ using a key `xts` feature and fed into CRAN package
 ![](https://eddelbuettel.github.io/td/gme_20210128.png)
 
 
+If a vector of symbols is used in the query, a list of results is returned:
+
+```r
+> res <- time_series(c("SPY", "QQQ", "IWM", "EEM"), outputsize=300, as="xts")
+> op <- par(mfrow=c(2,2))
+> sapply(res, function(x) quantmod::chart_Series(x, name=attr(x, "symbol")))
+> par(op)
+```
+
+
 ### Status
 
 Still fairly new and fresh.
