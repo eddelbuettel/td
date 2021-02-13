@@ -1,7 +1,10 @@
 2021-02-13  Dirk Eddelbuettel  <edd@debian.org>
 
+	* R/time_series.R (time_series): Vectorised returning a list
+	* man/time_series.Rd: Updated docs
+
 	* R/key.R (store_key): New helper function
-	* man/store_key.Rd: Documentation
+ 	* man/store_key.Rd: Documentation
 
 2021-02-11  Dirk Eddelbuettel  <edd@debian.org>
 

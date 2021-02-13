@@ -15,8 +15,9 @@
 ##' this downloader encompasses that functionality by returning a parsed object.
 ##'
 ##' @title Time Series Data Accessor for \sQuote{twelvedata}
-##' @param sym (character) A symbol understood as the backend such a stock symbol, foreign
-##' exchange pair, or more. See the \sQuote{twelvedata} documentation.
+##' @param sym (character) A (single or vector) symbol understood by the backend as a stock
+##' symbol, foreign exchange pair, or more. See the \sQuote{twelvedata} documentation for
+##' details on what is covered. In the case of a vector of arguments a list is returned.
 ##' @param interval (character) A valid interval designator ranging form \dQuote{1min} to
 ##' \dQuote{1month}. Currently supported are 1, 5, 15, 30 and 45 minutes, 1, 2, 4 hours (using
 ##' suffix \sQuote{h}, as well as \dQuote{1day}, \dQuote{1week} and \dQuote{1month}.
@@ -62,6 +63,7 @@
 ##' an error message is returned. The date or datetime column is returned parsed as either
 ##' a \code{Date} or \code{Datetime} where the latter is parsed under the exchange timezone
 ##' if present. Additional meta data returned from the query is also provided as attributes.
+##' If the call contained a vector of symbols, a (named) list of elements is returned.
 ##' @seealso \url{https://twelvedata.com/docs}
 ##' @examples
 ##' \dontrun{  # requires API key
@@ -78,6 +80,11 @@
 ##'    gme <- time_series("GME", "1min", start_date="2021-01-25T09:30:00",
 ##'                        end_date="2021-02-04T16:00:00", as="xts")
 ##'    chart_Series(gme, name=paste0(attr(gme, "symbol"), "/", attr(gme, "exchange")))
+##'
+##'    res <- time_series(c("SPY", "QQQ", "IWM", "EEM"), outputsize=300, as="xts")
+##'    op <- par(mfrow=c(2,2))
+##'    sapply(res, function(x) quantmod::chart_Series(x, name=attr(x, "symbol")))
+##'    par(op)
 ##' }
 ##' @author Dirk Eddelbuettel
 time_series <- function(sym,
@@ -124,27 +131,51 @@ time_series <- function(sym,
 
     accessed <- format(Sys.time())
     res <- RcppSimdJson::fload(qry)
-
-    if (res$status != "ok") stop(res$message, call. = FALSE)
-
     if (as == "raw") return(res)
 
-    dat <- res$values
-    if (grepl(".*(min|h)$", interval)) {
-        if ("exchange_timezone" %in% names(res$meta))
-            dat[, 1] <- as.POSIXct(dat[, 1], tz=res$meta$exchange_timezone)
-        else
-            dat[, 1] <- as.POSIXct(dat[, 1])
+    ## if we only have one result, listify it else keep the list
+    if (is.list(res) && (length(res) == 3) && (names(res) == c("meta", "values", "status"))) {
+        reslist <- list(res=res)
     } else {
-        dat[, 1] <- as.Date(dat[, 1])
+        reslist <- res
     }
-    for (i in seq(2, ncol(dat))) {
-        dat[, i] <- as.numeric(dat[,i])
+
+    syms <- unname(sapply(reslist, function(elem) { elem[["meta"]][["symbol"]] }))
+
+    ## loop over result elements
+    ret <- lapply(reslist, function(res) {
+        if (length(res) != 3 && names(length) != c("meta", "values", "status")) {
+            message("Unexpected result structure.")
+            return(NULL)
+        }
+
+        if (res$status != "ok") stop(res$message, call. = FALSE)
+
+        dat <- res$values
+        if (grepl(".*(min|h)$", interval)) {
+            if ("exchange_timezone" %in% names(res$meta))
+                dat[, 1] <- as.POSIXct(dat[, 1], tz=res$meta$exchange_timezone)
+            else
+                dat[, 1] <- as.POSIXct(dat[, 1])
+        } else {
+            dat[, 1] <- as.Date(dat[, 1])
+        }
+        for (i in seq(2, ncol(dat))) {
+            dat[, i] <- as.numeric(dat[,i])
+        }
+        if (as == "xts" && requireNamespace("xts", quietly=TRUE)) {
+            dat <- xts::xts(dat[,-1], order.by=dat[,1])
+        }
+        for (n in names(res$meta)) attr(dat, n) <- res$meta[[n]]
+        attr(dat, "accessed") <- accessed
+        dat
+    })
+
+    ## if it was just one element, flatten the list, else name it
+    if (length(ret) == 1) {
+        ret <- ret[[1]]
+    } else {
+        names(ret) <- syms
     }
-    if (as == "xts" && requireNamespace("xts", quietly=TRUE)) {
-        dat <- xts::xts(dat[,-1], order.by=dat[,1])
-    }
-    for (n in names(res$meta)) attr(dat, n) <- res$meta[[n]]
-    attr(dat, "accessed") <- accessed
-    dat
+    ret
 }
