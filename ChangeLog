@@ -1,3 +1,8 @@
+2021-02-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/key.R (store_key): New helper function
+	* man/store_key.Rd: Documentation
+
 2021-02-11  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Add CRAN, Dependencies, Download badges

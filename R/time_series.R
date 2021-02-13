@@ -1,13 +1,6 @@
 
 .baseurl <- "https://api.twelvedata.com/time_series"
 
-.get_apikey <- function() {
-    ## could add checks but ensure on what values to check for
-    apikey <- .pkgenv[["api"]]
-    if (apikey == "") stop("No query without key.", call. = FALSE)
-    apikey
-}
-
 ##' Retrieve Time Series Data from \sQuote{twelvedata}
 ##'
 ##' This function access time series data from \sQuote{twelvedata}. It requires an API key
@@ -129,6 +122,7 @@ time_series <- function(sym,
     if (!is.na(end_date)) qry <- paste0(qry, "&end_date=", gsub("\\s", "%20", end_date))
     if (previous_close) qry <- paste0(qry, "&previous_close=true")
 
+    accessed <- format(Sys.time())
     res <- RcppSimdJson::fload(qry)
 
     if (res$status != "ok") stop(res$message, call. = FALSE)
@@ -151,6 +145,6 @@ time_series <- function(sym,
         dat <- xts::xts(dat[,-1], order.by=dat[,1])
     }
     for (n in names(res$meta)) attr(dat, n) <- res$meta[[n]]
-    attr(dat, "accessed") <- format(Sys.time())
+    attr(dat, "accessed") <- accessed
     dat
 }
