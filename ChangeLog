@@ -1,3 +1,8 @@
+2021-02-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/quote.R: Add get_quote() function for quote/ endpoint
+	* man/get_quote.Rd: Documentation
+
 2021-02-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/time_series.R (time_series): Vectorised returning a list
