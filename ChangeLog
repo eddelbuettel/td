@@ -3,6 +3,9 @@
 	* R/quote.R: Add get_quote() function for quote/ endpoint
 	* man/get_quote.Rd: Documentation
 
+	* R/price.R: Add lightweight get_price() accessor for price/ endpoint
+	* man/get_price.Rd: Documentation
+
 2021-02-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/time_series.R (time_series): Vectorised returning a list
