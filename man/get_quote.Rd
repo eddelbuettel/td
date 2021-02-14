@@ -11,7 +11,7 @@ get_quote(sym, interval = c("1min", "5min", "15min", "30min", "45min", "1h",
   timezone = NA_character_, apikey)
 }
 \arguments{
-\item{sym}{(character) A single symbol understood by the backend as a stock
+\item{sym}{(character) A (single or vector) symbol understood by the backend as a stock
 symbol, foreign exchange pair, or more. See the \sQuote{twelvedata} documentation for
 details on what is covered.}
 
@@ -50,7 +50,8 @@ directory provided by \code{tools::R_user_dir} (for R 4.0.0 or later), or the
 \code{TWELVEDATA_API_KEY} variable.}
 }
 \value{
-The requested data is returned.
+The requested data is returned as a \code{data.frame} object with as many rows
+as there were symbols in the request.
 }
 \description{
 Retrieve Securities Quotes Data from \sQuote{twelvedata}

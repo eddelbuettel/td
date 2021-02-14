@@ -8,9 +8,9 @@ get_price(sym, as = c("data.frame", "raw"), exchange = "", country = "",
   type = c(NA_character_, "Stock", "Index", "ETF", "REIT"), dp = 5, apikey)
 }
 \arguments{
-\item{sym}{(character) A single symbol understood by the backend as a stock
+\item{sym}{(character) A (single or vector) symbol understood by the backend as a stock
 symbol, foreign exchange pair, or more. See the \sQuote{twelvedata} documentation for
-details on what is covered.}
+details on what is covered. In the case of a vector of arguments a vector or prices is returned.}
 
 \item{as}{(optional, character) A selector for the desired output format: one of
 \dQuote{data.frame} (the default) or or \dQuote{raw}.}
@@ -40,6 +40,9 @@ The requested data is returned.
 Retrieve Securities Real-Time Price Data from \sQuote{twelvedata}
 }
 \details{
+This is lightweight accessor which also returns the price. See \code{get_quote()} for a richer
+return set.
+
 The function has been named \code{get_price()} to be consistent with the \code{get_quote()}
 function.
 }

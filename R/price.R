@@ -8,9 +8,9 @@
 ##' The function has been named \code{get_price()} to be consistent with the \code{get_quote()}
 ##' function.
 ##' @title Quote Data Accessor for \sQuote{twelvedata}
-##' @param sym (character) A single symbol understood by the backend as a stock
+##' @param sym (character) A (single or vector) symbol understood by the backend as a stock
 ##' symbol, foreign exchange pair, or more. See the \sQuote{twelvedata} documentation for
-##' details on what is covered.
+##' details on what is covered. In the case of a vector of arguments a vector or prices is returned.
 ##' @param as (optional, character) A selector for the desired output format: one of
 ##' \dQuote{data.frame} (the default) or or \dQuote{raw}.
 ##' @param exchange (optional, character) A selection of the exchange for which data for
@@ -54,7 +54,8 @@ get_price <- function(sym,
     if (as == "raw") return(res)
 
     res <- as.data.frame(res)
-    res$price <- as.double(res$price)
+    res <- as.double(res)
+    names(res) <- sym
     attr(res, "accessed") <- accessed
     res
 }

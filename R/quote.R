@@ -6,7 +6,7 @@
 ##' The function has been named \code{get_quote()} to not clash with the base R function
 ##' \code{quote}.
 ##' @title Quote Data Accessor for \sQuote{twelvedata}
-##' @param sym (character) A single symbol understood by the backend as a stock
+##' @param sym (character) A (single or vector) symbol understood by the backend as a stock
 ##' symbol, foreign exchange pair, or more. See the \sQuote{twelvedata} documentation for
 ##' details on what is covered.
 ##' @param interval (character) A valid interval designator ranging form \dQuote{1min} to
@@ -34,7 +34,8 @@
 ##' package startup is used. The startup looks for either a file in the per-package config
 ##' directory provided by \code{tools::R_user_dir} (for R 4.0.0 or later), or the
 ##' \code{TWELVEDATA_API_KEY} variable.
-##' @return The requested data is returned.
+##' @return The requested data is returned as a \code{data.frame} object with as many rows
+##' as there were symbols in the request.
 ##' @seealso \url{https://twelvedata.com/docs}
 ##' @author Dirk Eddelbuettel
 get_quote <- function(sym,
@@ -69,13 +70,33 @@ get_quote <- function(sym,
     res <- RcppSimdJson::fload(qry)
     if (as == "raw") return(res)
 
-    res <- as.data.frame(res)
-    res$datetime <- as.POSIXct(res$datetime)
-    for (field in c("open", "high", "low", "close", "volume", "previous_close", "change",
-                    "percent_change", "average_volume", "fifty_two_week.low", "fifty_two_week.high",
-                    "fifty_two_week.low_change", "fifty_two_week.high_change",
-                    "fifty_two_week.low_change_percent", "fifty_two_week.high_change_percent"))
-         res[[field]] <- as.numeric(res[[field]])
-    attr(res, "accessed") <- accessed
-    res
+    if (length(sym) == 1) {
+        reslist <- list(res=res)
+    } else {
+        reslist <- res
+    }
+
+    ## loop over result elements
+    ret <- lapply(reslist, function(elem) {
+        res <- as.data.frame(elem)
+        res$datetime <- as.POSIXct(res$datetime)
+        for (field in c("open", "high", "low", "close", "volume", "previous_close", "change",
+                        "percent_change", "average_volume", "fifty_two_week.low",
+                        "fifty_two_week.high", "fifty_two_week.low_change",
+                        "fifty_two_week.high_change", "fifty_two_week.low_change_percent",
+                        "fifty_two_week.high_change_percent"))
+            res[[field]] <- as.numeric(res[[field]])
+        attr(res, "accessed") <- accessed
+        res
+    })
+
+    ## if it was just one element, flatten the list, else name it
+    if (length(ret) == 1) {
+        ret <- ret[[1]]
+    } else {
+        names(ret) <- sym
+        ret <- do.call(rbind, ret)
+    }
+    ret
+
 }
