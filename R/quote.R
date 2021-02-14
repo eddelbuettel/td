@@ -70,6 +70,12 @@ get_quote <- function(sym,
     if (as == "raw") return(res)
 
     res <- as.data.frame(res)
-    attr(dat, "accessed") <- accessed
+    res$datetime <- as.POSIXct(res$datetime)
+    for (field in c("open", "high", "low", "close", "volume", "previous_close", "change",
+                    "percent_change", "average_volume", "fifty_two_week.low", "fifty_two_week.high",
+                    "fifty_two_week.low_change", "fifty_two_week.high_change",
+                    "fifty_two_week.low_change_percent", "fifty_two_week.high_change_percent"))
+         res[[field]] <- as.numeric(res[[field]])
+    attr(res, "accessed") <- accessed
     res
 }
