@@ -86,10 +86,6 @@ This function access time series data from \sQuote{twelvedata}. It requires an A
 to be registered and to be supplied either in user-config file (TODO: add simple
 writer) or an environment variable.
 
-The supported API is richer than what the function currently supports, notably with
-respect to \emph{multiple} symbols in one request. We expect to expand the function to return
-a list.
-
 All suitable optional parameters of the API are now supported. We excluded return as csv as
 this downloader encompasses that functionality by returning a parsed object.
 }
