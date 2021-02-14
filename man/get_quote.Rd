@@ -19,6 +19,9 @@ details on what is covered.}
 \dQuote{1month}. Currently supported are 1, 5, 15, 30 and 45 minutes, 1, 2, 4 hours (using
 suffix \sQuote{h}, as well as \dQuote{1day}, \dQuote{1week} and \dQuote{1month}.}
 
+\item{as}{(optional, character) A selector for the desired output format: one of
+\dQuote{data.frame} (the default) or or \dQuote{raw}.}
+
 \item{exchange}{(optional, character) A selection of the exchange for which data for
 \dQuote{sym} is requested, default value is unset.}
 
@@ -39,9 +42,7 @@ numbers. The value can be between 0 and 11, with a default value of 5.}
 is optional. Possible values are \dQuote{Exchange} (the default) to return the
 exchange-supplied value, \dQuote{UTC} to use UTC, or a value IANA timezone name such as
 \dQuote{America/New_York} (see \code{link{OlsonNames}} to see the values R knows). Note
-that the IANA timezone values are case-sensitive. Note that intra-day data is converted to
-an R datetime object (the standard \code{POSIXct} type) using the exchange timestamp in
-the returned metadata, if present.}
+that the IANA timezone values are case-sensitive.}
 
 \item{apikey}{(optional character) An API key override, if missing a value cached from
 package startup is used. The startup looks for either a file in the per-package config
@@ -49,8 +50,7 @@ directory provided by \code{tools::R_user_dir} (for R 4.0.0 or later), or the
 \code{TWELVEDATA_API_KEY} variable.}
 }
 \value{
-The requested data is returned. If the request was unsuccessful,
-an error message is returned.
+The requested data is returned.
 }
 \description{
 Retrieve Securities Quotes Data from \sQuote{twelvedata}

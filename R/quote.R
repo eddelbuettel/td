@@ -12,6 +12,8 @@
 ##' @param interval (character) A valid interval designator ranging form \dQuote{1min} to
 ##' \dQuote{1month}. Currently supported are 1, 5, 15, 30 and 45 minutes, 1, 2, 4 hours (using
 ##' suffix \sQuote{h}, as well as \dQuote{1day}, \dQuote{1week} and \dQuote{1month}.
+##' @param as (optional, character) A selector for the desired output format: one of
+##' \dQuote{data.frame} (the default) or or \dQuote{raw}.
 ##' @param exchange (optional, character) A selection of the exchange for which data for
 ##' \dQuote{sym} is requested, default value is unset.
 ##' @param country (optional, character) A selection of the country exchange for which data
@@ -32,8 +34,7 @@
 ##' package startup is used. The startup looks for either a file in the per-package config
 ##' directory provided by \code{tools::R_user_dir} (for R 4.0.0 or later), or the
 ##' \code{TWELVEDATA_API_KEY} variable.
-##' @return The requested data is returned. If the request was unsuccessful,
-##' an error message is returned.
+##' @return The requested data is returned.
 ##' @seealso \url{https://twelvedata.com/docs}
 ##' @author Dirk Eddelbuettel
 get_quote <- function(sym,
