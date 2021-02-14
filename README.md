@@ -111,6 +111,7 @@ If a vector of symbols is used in the query, a list of results is returned:
 > par(op)
 ```
 
+As of version 0.0.2, additional `get_quote()` and `get_price()` accessors are available.
 
 ### Status
 
@@ -119,6 +120,12 @@ Still fairly new and fresh.
 We also note that the package is not affiliated with [twelvedata](https://www.twelvedata.com). For
 an officially supported package, see their
 [twelvedata-python](https://github.com/twelvedata/twelvedata-python) package.
+
+On Windows, an updated version of [RcppSimdJson](https://github.com/eddelbuettel/) is needed as
+discussed in the twin issues [#1 here](https://github.com/eddelbuettel/td/issues/1) and [#66 at
+RcppSimdJson](https://github.com/eddelbuettel/rcppsimdjson/issues/66): the path was insufficiently
+sanitized on Windows leading an error when trying to create a temporary file. A fixed version of
+[RcppSimdJson](https://github.com/eddelbuettel/) will be provided in a few days.
 
 ### Contributing
 

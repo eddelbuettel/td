@@ -6,6 +6,9 @@
 	* R/price.R: Add lightweight get_price() accessor for price/ endpoint
 	* man/get_price.Rd: Documentation
 
+	* README.md: Add note regarding \ghit{1} and underlying Windows issue
+	with \pkg{RcppSimdJson} which will get fixed soon.
+
 2021-02-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/time_series.R (time_series): Vectorised returning a list
