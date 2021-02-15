@@ -125,7 +125,9 @@ On Windows, an updated version of [RcppSimdJson](https://github.com/eddelbuettel
 discussed in the twin issues [#1 here](https://github.com/eddelbuettel/td/issues/1) and [#66 at
 RcppSimdJson](https://github.com/eddelbuettel/rcppsimdjson/issues/66): the path was insufficiently
 sanitized on Windows leading an error when trying to create a temporary file. A fixed version of
-[RcppSimdJson](https://github.com/eddelbuettel/) will be provided in a few days.
+[RcppSimdJson](https://github.com/eddelbuettel/) will be provided in a few days. Until then, Windows
+users can install a (Windows binary) pre-release via `install.packages("RcppSimdJson",
+repo="http://ghrr.gihub.io/drat")`.
 
 ### Contributing
 
