@@ -115,11 +115,10 @@ As of version 0.0.2, additional `get_quote()` and `get_price()` accessors are av
 
 ### Status
 
-Still fairly new and fresh.
-
-We also note that the package is not affiliated with [twelvedata](https://www.twelvedata.com). For
-an officially supported package, see their
-[twelvedata-python](https://github.com/twelvedata/twelvedata-python) package.
+Still fairly new and fresh, but already fairly feature-complete. The package is also officially
+[recommended and approved](https://github.com/twelvedata/twelvedata-r-sdk) by [Twelve
+Data](https://www.twelvedata.com), but is developed independently.  For an officially supported
+package, see their [twelvedata-python](https://github.com/twelvedata/twelvedata-python) package.
 
 On Windows, an updated version of [RcppSimdJson](https://github.com/eddelbuettel/) is needed as
 discussed in the twin issues [#1 here](https://github.com/eddelbuettel/td/issues/1) and [#66 at
