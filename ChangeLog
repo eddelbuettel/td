@@ -1,3 +1,9 @@
+2021-02-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.0.2
+
+	* README.md: Minor edit
+
 2021-02-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
@@ -8,7 +14,7 @@
 	* R/price.R: Add lightweight get_price() accessor for price/ endpoint
 	* man/get_price.Rd: Documentation
 
-	* README.md: Add note regarding \ghit{1} and underlying Windows issue
+	* README.md: Add note regarding issue #1 and underlying Windows issue
 	with \pkg{RcppSimdJson} which will get fixed soon.
 
 2021-02-13  Dirk Eddelbuettel  <edd@debian.org>
@@ -53,7 +59,7 @@
 
 2021-02-05  Dirk Eddelbuettel  <edd@debian.org>
 
-	* DESCRIPTION: Initial version
+	* DESCRIPTION: Initial version 0.0.1
 	* NAMESPACE: Ditto
 	* R/time_series.R: Basic accessor
 	* R/init.R: Cache key from either config file or env var
