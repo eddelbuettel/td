@@ -1,3 +1,7 @@
+2021-05-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Update URLs to reflect changed default locations
+
 2021-02-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.2

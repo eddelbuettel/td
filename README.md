@@ -10,8 +10,8 @@
 
 ### Motivation
 
-[twelvedata](https://www.twelvedata.com) provides a very rich REST API, see
-the [documentation](https://www.twelvedata.com/docs).  While a (free) login
+[twelvedata](https://twelvedata.com) provides a very rich REST API, see
+the [documentation](https://twelvedata.com/docs).  While a (free) login
 and a (free, permitting limited but possibly sufficient use) API key are
 required, the provided access is rich to set up simple R routines.  This
 package does that.
@@ -117,7 +117,7 @@ As of version 0.0.2, additional `get_quote()` and `get_price()` accessors are av
 
 Still fairly new and fresh, but already fairly feature-complete. The package is also officially
 [recommended and approved](https://github.com/twelvedata/twelvedata-r-sdk) by [Twelve
-Data](https://www.twelvedata.com), but is developed independently.  For an officially supported
+Data](https://twelvedata.com), but is developed independently.  For an officially supported
 package, see their [twelvedata-python](https://github.com/twelvedata/twelvedata-python) package.
 
 On Windows, an updated version of [RcppSimdJson](https://github.com/eddelbuettel/) is needed as
