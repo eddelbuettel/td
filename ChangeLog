@@ -1,6 +1,7 @@
 2021-05-28  Dirk Eddelbuettel  <edd@debian.org>
 
  	* DESCRIPTION (URL, BugReports): Added
+	(Depends): Added versioned R 4.0.0 depends
 
 	* README.md: Update URLs to reflect changed default locations
 

@@ -15,5 +15,6 @@ Imports: RcppSimdJson
 Suggests: tinytest, xts
 URL: https://dirk.eddelbuettel.com/code/td.html, https://github.com/eddelbuettel/td
 BugReports: https://github.com/eddelbuettel/td/issues
+Depends: R (>= 4.0.0)
 Encoding: UTF-8
 RoxygenNote: 6.0.1
