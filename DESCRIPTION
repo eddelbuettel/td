@@ -13,5 +13,7 @@ Description: The 'twelvedata' REST service offers access to current and historic
 License: GPL (>= 2)
 Imports: RcppSimdJson
 Suggests: tinytest, xts
+URL: https://dirk.eddelbuettel.com/code/td.html, https://github.com/eddelbuettel/td
+BugReports: https://github.com/eddelbuettel/td/issues
 Encoding: UTF-8
 RoxygenNote: 6.0.1
