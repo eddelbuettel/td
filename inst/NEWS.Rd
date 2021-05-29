@@ -3,6 +3,14 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/td/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/td/issues/#1}{##1}}
 
+\section{Changes in version 0.0.3 (2021-05-29)}{
+  \itemize{
+    \item The package now (formally) depends on R (>= 4.0.0) as it uses
+    a recently added R function for the default config file.
+    \item A few URLs were updated in the README.md file
+  }
+}
+
 \section{Changes in version 0.0.2 (2021-02-18)}{
   \itemize{
     \item The \code{time_series} is now vectorised and can return a list
