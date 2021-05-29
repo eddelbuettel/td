@@ -1,8 +1,11 @@
 
 suppressMessages(library(td))
 
+.onWindows <- .Platform$OS.type == "windows"
+
 ## there is not a lot we can without an API key
-expect_error(time_series(sym="SPY", api=""))
+## because windoze is windoze this now errors so protecting it
+if (! .onWindows) expect_error(time_series(sym="SPY", api=""))
 
 ## if we have an API key AND tests are opted-into, run basic tests
 ## we use an opt-in to not run down the query allotment
