@@ -1,6 +1,7 @@
 2021-05-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R (.defaultFile): Correct version comparison
+	* DESCRIPTION (Depends): Remove versioned depends
 
 2021-05-29  Dirk Eddelbuettel  <edd@debian.org>
 
