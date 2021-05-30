@@ -20,7 +20,7 @@
 .pkgenv <- new.env(parent=emptyenv())
 
 .defaultFile <- function() {
-    if (R.version.string >= "4.0.0") {
+    if (getRversion() >= "4.0.0") {
         tddir <- tools::R_user_dir("td")
         if (dir.exists(tddir)) {
             fname <- file.path(tddir, "api.dcf")
