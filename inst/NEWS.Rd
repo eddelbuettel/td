@@ -4,6 +4,7 @@
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/td/issues/#1}{##1}}
 
 \section{Changes in version 0.0.4 (2021-06-05)}{
+  \itemize{
     \item The version comparison was corrected and the package no longer
     (formally) depends on R (>= 4.0.0)
     \item Very minor README.md edits
