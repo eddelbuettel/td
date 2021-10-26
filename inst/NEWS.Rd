@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/td/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/td/issues/#1}{##1}}
 
+\section{Changes in version 0.0.4.1 (2021-10-27)}{
+  \itemize{
+    \item Functions for the reference data from \sQoute{twelvedata} are
+    added
+  }
+}
+
 \section{Changes in version 0.0.4 (2021-06-05)}{
   \itemize{
     \item The version comparison was corrected and the package no longer
