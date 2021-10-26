@@ -1,3 +1,26 @@
+2021-10-26  Kenneth Rose <kennethrose82@gmail.com>
+
+  * DESCRIPTION (Version, Date): Roll minor version and date
+
+  * R/ref_stocks.R: Added function
+  * R/ref_forex_pairs.R: Added function
+  * R/ref_indices.R: Added function
+  * R/ref_exchanges.R: Added function
+  * R/ref_symbol_search.R: Added function
+  * R/ref_etf.R: Added function
+  * R/ref_crypto_exchanges.R: Added function
+  * R/ref_crypto_pairs.R: Added function
+  * R/ref_earliest_timestamp.R: Added function
+  * man/ref_stocks.Rd: Added documentation
+  * man/ref_forex_pairs.Rd: Added documentation
+  * man/ref_indices.Rd: Added documentation
+  * man/ref_exchanges.Rd: Added documentation
+  * man/ref_symbol_search.Rd: Added documentation
+  * man/ref_etf.Rd: Added documentation
+  * man/ref_crypto_exchanges.Rd: Added documentation
+  * man/ref_crypto_pairs.Rd: Added documentation
+  * man/ref_earliest_timestamp.Rd: Added documentation
+
 2021-06-05  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.4
