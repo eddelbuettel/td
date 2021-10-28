@@ -4,11 +4,19 @@
 \alias{get_quote}
 \title{Quote Data Accessor for \sQuote{twelvedata}}
 \usage{
-get_quote(sym, interval = c("1min", "5min", "15min", "30min", "45min", "1h",
-  "2h", "4h", "1day", "1week", "1month"), as = c("data.frame", "raw"),
-  exchange = "", country = "", volume_time_period = 9,
-  type = c(NA_character_, "Stock", "Index", "ETF", "REIT"), dp = 5,
-  timezone = NA_character_, apikey)
+get_quote(
+  sym,
+  interval = c("1min", "5min", "15min", "30min", "45min", "1h", "2h", "4h", "1day",
+    "1week", "1month"),
+  as = c("data.frame", "raw"),
+  exchange = "",
+  country = "",
+  volume_time_period = 9,
+  type = c(NA_character_, "Stock", "Index", "ETF", "REIT"),
+  dp = 5,
+  timezone = NA_character_,
+  apikey
+)
 }
 \arguments{
 \item{sym}{(character) A (single or vector) symbol understood by the backend as a stock

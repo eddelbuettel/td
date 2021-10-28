@@ -11,7 +11,7 @@
 ##' @param exchange (optional, character) Exchange where crypto is traded. Default value is unset.
 ##' @param currency_base (optional, character) Base currency name. Default value is unset.
 ##' @param currency_quote (optional, character)  Quote currency name. Default value is unset.
-##' @param flatten_exchange (bool) Flatten the \dQuote{data.frame}.
+##' @param flatten_exchanges (bool) Flatten the \dQuote{data.frame}.
 ##' @param apikey (optional character) An API key override, if missing a value cached from
 ##' package startup is used. The startup looks for either a file in the per-package config
 ##' directory provided by \code{tools::R_user_dir} (for R 4.0.0 or later), or the

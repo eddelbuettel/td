@@ -4,12 +4,23 @@
 \alias{time_series}
 \title{Time Series Data Accessor for \sQuote{twelvedata}}
 \usage{
-time_series(sym, interval = c("1min", "5min", "15min", "30min", "45min", "1h",
-  "2h", "4h", "1day", "1week", "1month"), as = c("data.frame", "xts", "raw"),
-  exchange = "", country = "", type = c(NA_character_, "Stock", "Index",
-  "ETF", "REIT"), outputsize = NA_character_, dp = 5, order = c("ASC",
-  "DESC"), timezone = NA_character_, start_date = NA_character_,
-  end_date = NA_character_, previous_close = FALSE, apikey)
+time_series(
+  sym,
+  interval = c("1min", "5min", "15min", "30min", "45min", "1h", "2h", "4h", "1day",
+    "1week", "1month"),
+  as = c("data.frame", "xts", "raw"),
+  exchange = "",
+  country = "",
+  type = c(NA_character_, "Stock", "Index", "ETF", "REIT"),
+  outputsize = NA_character_,
+  dp = 5,
+  order = c("ASC", "DESC"),
+  timezone = NA_character_,
+  start_date = NA_character_,
+  end_date = NA_character_,
+  previous_close = FALSE,
+  apikey
+)
 }
 \arguments{
 \item{sym}{(character) A (single or vector) symbol understood by the backend as a stock

@@ -3,10 +3,10 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/td/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/td/issues/#1}{##1}}
 
-\section{Changes in version 0.0.4.1 (2021-10-27)}{
+\section{Changes in version 0.0.5 (2021-10-28)}{
   \itemize{
-    \item Functions for the reference data from \sQoute{twelvedata} are
-    added
+    \item New functions to access twelvedata reference data (Kenneth in
+    \ghpr{4} addressubf \ghit{3})
   }
 }
 

@@ -26,12 +26,12 @@ ref_crypto_pairs(
 
 \item{currency_quote}{(optional, character)  Quote currency name. Default value is unset.}
 
+\item{flatten_exchanges}{(bool) Flatten the \dQuote{data.frame}.}
+
 \item{apikey}{(optional character) An API key override, if missing a value cached from
 package startup is used. The startup looks for either a file in the per-package config
 directory provided by \code{tools::R_user_dir} (for R 4.0.0 or later), or the
 \code{TWELVEDATA_API_KEY} variable.}
-
-\item{flatten_exchange}{(bool) Flatten the \dQuote{data.frame}.}
 }
 \value{
 The requested data is returned as a \code{data.frame} object.

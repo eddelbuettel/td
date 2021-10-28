@@ -4,8 +4,15 @@
 \alias{get_price}
 \title{Quote Data Accessor for \sQuote{twelvedata}}
 \usage{
-get_price(sym, as = c("data.frame", "raw"), exchange = "", country = "",
-  type = c(NA_character_, "Stock", "Index", "ETF", "REIT"), dp = 5, apikey)
+get_price(
+  sym,
+  as = c("data.frame", "raw"),
+  exchange = "",
+  country = "",
+  type = c(NA_character_, "Stock", "Index", "ETF", "REIT"),
+  dp = 5,
+  apikey
+)
 }
 \arguments{
 \item{sym}{(character) A (single or vector) symbol understood by the backend as a stock
