@@ -32,9 +32,9 @@ ref_indices <- function(sym = "",
   res <- RcppSimdJson::fload(qry)
   if (as == "raw") return(res)
 
-  if(length(sym) == 1) res <- list(res)
+  if(length(qry) == 1) res <- list(res)
 
-  names(res) <- sym
+  names(res) <- seq_along(res)
   dat <- lapply(res, function(x){
     if(x$status != "ok") stop(x$message, call. = FALSE)
     dat <- x$data
