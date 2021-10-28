@@ -40,7 +40,7 @@ ref_exchanges <- function(type = c("stock", "etf", "index"),
   res <- RcppSimdJson::fload(qry)
   if (as == "raw") return(res)
 
-  if(length(type) == 1) res <- list(res)
+  if(length(qry) == 1) res <- list(res)
 
   names(res) <- type
   dat <- lapply(res, function(x){
@@ -50,7 +50,7 @@ ref_exchanges <- function(type = c("stock", "etf", "index"),
   })
   dat <- do.call("rbind", dat)
 
-  if(is.null(dat)) stop("The API returned NULL data.")
+  if(is.null(dat)) stop("The API returned NULL data.", call. = FALSE)
 
   attr(dat, which = "accessed") <- accessed
 
