@@ -6,6 +6,9 @@
 	* R/ref_stocks.R: Idem
 	* R/ref_symbol_search.R: Idem
 
+	* R/ref_crypto_pairs.R: One-char correction in variable
+	* man/ref_crypto_pairs.Rd: Idem
+
 2021-10-26  Kenneth Rose <kennethrose82@gmail.com>
 
 	* DESCRIPTION (Version, Date): Roll minor version and date

@@ -1,8 +1,8 @@
 Package: td
 Type: Package
 Title: Access to the 'twelvedata' Financial Data API
-Version: 0.0.4.1
-Date: 2021-10-26
+Version: 0.0.5
+Date: 2021-10-28
 Author: Dirk Eddelbuettel and Kenneth Rose
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: The 'twelvedata' REST service offers access to current and historical
