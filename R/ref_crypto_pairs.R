@@ -32,7 +32,7 @@ ref_crypto_pairs <- function(sym = "",
   qry <- paste0(.refcryptopairsurl, "?",
                 "&apikey=", apikey)
   if (sym[1] != "") qry <- paste0(qry, "&symbol=", sym)
-  if (exchange != "") qry <- paste0(qry, "&symbol=", sym)
+  if (exchange != "") qry <- paste0(qry, "&exchange=", exchange)
   if (currency_base != "") qry <- paste0(qry, "&currency_base=", currency_base)
   if (currency_quote != "") qry <- paste0(qry, "&currency_quote=", currency_quote)
 
@@ -40,15 +40,19 @@ ref_crypto_pairs <- function(sym = "",
   res <- RcppSimdJson::fload(qry)
   if (as == "raw") return(res)
 
-  if(length(sym) == 1) res <- list(res)
+  if(length(qry) == 1) res <- list(res)
 
-  names(res) <- sym
+  names(res) <- seq_along(res)
   dat <- lapply(res, function(x){
     if(x$status != "ok") stop(x$message, call. = FALSE)
+    if(is.null(x$data)) warning("A query returned NULL data.", call. = FALSE)
     dat <- x$data
     dat
   })
   dat <- do.call("rbind", dat)
+
+  if(is.null(dat)) stop("The API returned NULL data. Try to change your query.", call. = FALSE)
+
 
   if(flatten_exchanges){
     dat <- lapply(seq_along(dat$symbol),
