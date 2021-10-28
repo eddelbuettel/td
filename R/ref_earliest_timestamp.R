@@ -54,7 +54,7 @@ ref_earliest_timestamp <- function(sym,
   if (as == "raw") return(res)
 
   if("status" %in% names(res)){
-    if(res$status != "ok") stop(res$message)
+    if(res$status != "ok") stop(res$message, call. = FALSE)
   }
 
   dat <- data.frame(datetime = as.POSIXct(res$datetime), unix_time = res$unix_time)

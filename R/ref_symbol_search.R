@@ -23,7 +23,7 @@ ref_symbol_search <- function(sym,
   if (missing(apikey)) apikey <- .get_apikey()
   as <- match.arg(as)
 
-  if(output_size > 120) stop("Max output size is 120.")
+  if(output_size > 120) stop("Max output size is 120.", call. = FALSE)
 
   qry <- paste0(.refsymbolsearchurl, "?",
                 "&apikey=", apikey)
@@ -43,7 +43,7 @@ ref_symbol_search <- function(sym,
   })
   dat <- do.call("rbind", dat)
 
-  if(is.null(dat)) stop("The API returned NULL data.")
+  if(is.null(dat)) stop("The API returned NULL data.", call. = FALSE)
 
   attr(dat, which = "accessed") <- accessed
 

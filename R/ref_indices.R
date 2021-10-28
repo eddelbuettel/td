@@ -42,7 +42,7 @@ ref_indices <- function(sym = "",
   })
   dat <- do.call("rbind", dat)
 
-  if(is.null(dat)) stop("API returned NULL data. Try to change your query.")
+  if(is.null(dat)) stop("API returned NULL data. Try to change your query.", call. = FALSE)
 
   attr(dat, which = "accessed") <- accessed
 

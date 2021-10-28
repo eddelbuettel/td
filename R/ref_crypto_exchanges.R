@@ -35,7 +35,7 @@ ref_crypto_exchanges <- function(as = c("data.frame", "raw"),
   })
   dat <- do.call("rbind", dat)
 
-  if(is.null(dat)) stop("The API returned NULL data.")
+  if(is.null(dat)) stop("The API returned NULL data.", call. = FALSE)
 
   attr(dat, which = "accessed") <- accessed
 

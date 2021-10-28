@@ -1,25 +1,33 @@
+2021-10-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/ref_crypto_exchanges.R: Add call. = FALSE to stop()
+	* R/ref_earliest_timestamp.R: Idem
+	* R/ref_indices.R: Idem
+	* R/ref_stocks.R: Idem
+	* R/ref_symbol_search.R: Idem
+
 2021-10-26  Kenneth Rose <kennethrose82@gmail.com>
 
-  * DESCRIPTION (Version, Date): Roll minor version and date
+	* DESCRIPTION (Version, Date): Roll minor version and date
 
-  * R/ref_stocks.R: Added function
-  * R/ref_forex_pairs.R: Added function
-  * R/ref_indices.R: Added function
-  * R/ref_exchanges.R: Added function
-  * R/ref_symbol_search.R: Added function
-  * R/ref_etf.R: Added function
-  * R/ref_crypto_exchanges.R: Added function
-  * R/ref_crypto_pairs.R: Added function
-  * R/ref_earliest_timestamp.R: Added function
-  * man/ref_stocks.Rd: Added documentation
-  * man/ref_forex_pairs.Rd: Added documentation
-  * man/ref_indices.Rd: Added documentation
-  * man/ref_exchanges.Rd: Added documentation
-  * man/ref_symbol_search.Rd: Added documentation
-  * man/ref_etf.Rd: Added documentation
-  * man/ref_crypto_exchanges.Rd: Added documentation
-  * man/ref_crypto_pairs.Rd: Added documentation
-  * man/ref_earliest_timestamp.Rd: Added documentation
+	* R/ref_stocks.R: Added function
+	* R/ref_forex_pairs.R: Idem
+	* R/ref_indices.R: Idem
+	* R/ref_exchanges.R: Idem
+	* R/ref_symbol_search.R: Idem
+	* R/ref_etf.R: Idem
+	* R/ref_crypto_exchanges.R: Idem
+	* R/ref_crypto_pairs.R: Idem
+	* R/ref_earliest_timestamp.R: Idem
+	* man/ref_stocks.Rd: Added documentation
+	* man/ref_forex_pairs.Rd: Idem
+	* man/ref_indices.Rd: Idem
+	* man/ref_exchanges.Rd: Idem
+	* man/ref_symbol_search.Rd: Idem
+	* man/ref_etf.Rd: Idem
+	* man/ref_crypto_exchanges.Rd: Idem
+	* man/ref_crypto_pairs.Rd: Idem
+	* man/ref_earliest_timestamp.Rd: Idem
 
 2021-06-05  Dirk Eddelbuettel  <edd@debian.org>
 

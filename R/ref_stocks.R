@@ -57,7 +57,7 @@ ref_stocks <- function(sym = "",
     })
   dat <- do.call("rbind", dat)
 
-  if(is.null(dat)) stop("The API returned NULL. Try to change your query.")
+  if(is.null(dat)) stop("The API returned NULL. Try to change your query.", call. = FALSE)
 
   attr(dat, which = "accessed") <- accessed
 
