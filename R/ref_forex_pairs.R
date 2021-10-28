@@ -35,17 +35,18 @@ ref_forex_pairs <- function(sym = "",
   res <- RcppSimdJson::fload(qry)
   if (as == "raw") return(res)
 
-  if(length(sym) == 1) res <- list(res)
+  if(length(qry) == 1) res <- list(res)
 
   names(res) <- sym
   dat <- lapply(res, function(x){
     if(x$status != "ok") stop(x$message, call. = FALSE)
+    if(is.null(x$data)) warning("A query returned NULL data.", call. = FALSE)
     dat <- x$data
     dat
   })
   dat <- do.call("rbind", dat)
 
-  if(is.null(dat)) stop("The API returned NULL. Try to change your query.")
+  if(is.null(dat)) stop("The API returned NULL. Try to change your query.", call. = FALSE)
 
   attr(dat, which = "accessed") <- accessed
 
