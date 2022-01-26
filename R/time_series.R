@@ -131,7 +131,7 @@ time_series <- function(sym,
     if (as == "raw") return(res)
 
     ## if we only have one result, listify it else keep the list
-    if (is.list(res) && (length(res) == 3) && (names(res) == c("meta", "values", "status"))) {
+    if (is.list(res) && (length(res) == 3) && (all(names(res) == c("meta", "values", "status")))) {
         reslist <- list(res=res)
     } else {
         reslist <- res

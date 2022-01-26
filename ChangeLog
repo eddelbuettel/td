@@ -1,4 +1,11 @@
+2022-01-26  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/time_series.R: Wrap one equality comparison in all() to ensure
+	only a length one logical results (thanks for the heads-up, CRAN!)
+
 2021-10-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.0.5
 
 	* R/ref_crypto_exchanges.R: Add call. = FALSE to stop()
 	* R/ref_earliest_timestamp.R: Idem
