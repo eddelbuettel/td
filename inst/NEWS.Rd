@@ -3,10 +3,17 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/td/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/td/issues/#1}{##1}}
 
+\section{Changes in version 0.0.6 (2022-01-26)}{
+  \itemize{
+    \item Correct one equality comparison by wrapping in \code{all()} to
+    ensura length-one logical expression is created
+  }
+}
+
 \section{Changes in version 0.0.5 (2021-10-28)}{
   \itemize{
     \item New functions to access twelvedata reference data (Kenneth in
-    \ghpr{4} addressubf \ghit{3})
+    \ghpr{4} addressing \ghit{3})
   }
 }
 

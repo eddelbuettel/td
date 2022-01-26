@@ -1,5 +1,7 @@
 2022-01-26  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Release 0.0.6
+
 	* R/time_series.R: Wrap one equality comparison in all() to ensure
 	only a length one logical results (thanks for the heads-up, CRAN!)
 
