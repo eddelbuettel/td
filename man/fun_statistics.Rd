@@ -5,12 +5,10 @@
 \title{Fundamental Data Accessor for Main Statistics from \sQuote{twelvedata}
      This API endpoint is available starting with the Pro plan.}
 \usage{
-fun_statistics(sym, as = c("raw"), exchange = "", country = "", apikey)
+fun_statistics(sym, exchange = "", country = "", apikey)
 }
 \arguments{
 \item{sym}{(character)  A (single or vector) symbol for Indices. Defaults to unset.}
-
-\item{as}{(character) Return format as \dQuote{raw}.}
 
 \item{exchange}{(optional, character)  Exchange. Defaults to unset.}
 
@@ -22,7 +20,7 @@ directory provided by \code{tools::R_user_dir} (for R 4.0.0 or later), or the
 \code{TWELVEDATA_API_KEY} variable.}
 }
 \value{
-The requested data is returned as a \code{data.frame} object.
+The requested data is returned as a \code{list} object.
 }
 \description{
 Retrieve Main Fundamental Data Statistics Including Valuation
