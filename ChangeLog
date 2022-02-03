@@ -1,3 +1,9 @@
+2022-02-03  Kenneth Rose  <kennethrose82@gmail.com>
+
+	* Fixed bug in R/fun_statistics.R
+	* R/fun_profile.R: Added function
+	* man/fun_profile.Rd: Idem
+
 2022-02-02  Kenneth Rose  <kennethrose82@gmail.com>
 
 	* R/fun_statistics.R: Added function

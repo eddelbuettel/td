@@ -1,12 +1,9 @@
 
-.funstatisticssurl <- "https://api.twelvedata.com/statistics"
-
-##' Retrieve Main Fundamental Data Statistics Including Valuation
-##' Metrics and Financials from \sQuote{twelvedata}.
+##' Retrieve Profile Data from \sQuote{twelvedata}.
 ##'
-##' \code{fun_statistics}.
-##' @title Fundamental Data Accessor for Main Statistics from \sQuote{twelvedata}
-##'      This API endpoint is available starting with the Pro plan.
+##' \code{fun_profile}.
+##' @title Fundamental Data Accessor for the Profile from \sQuote{twelvedata}
+##'      This API endpoint is available starting with the Grow plan.
 ##' @param sym (character)  A (single or vector) symbol for Indices. Defaults to unset.
 ##' @param exchange (optional, character)  Exchange. Defaults to unset.
 ##' @param country (optional, character)  An alpha code or country name. Defaults to unset.
@@ -16,14 +13,14 @@
 ##' \code{TWELVEDATA_API_KEY} variable.
 ##' @return The requested data is returned as a \code{list} object.
 ##' @seealso \url{https://twelvedata.com/docs}
-fun_statistics <- function(sym,
-                           exchange = "",
-                           country = "",
-                           apikey) {
+fun_profile <- function(sym,
+                        exchange = "",
+                        country = "",
+                        apikey) {
 
   if (missing(apikey)) apikey <- .get_apikey()
 
-  qry <- paste0(.funstatisticssurl, "?",
+  qry <- paste0("https://api.twelvedata.com/profile", "?",
                 "&apikey=", apikey)
   qry <- paste0(qry, "&symbol=", sym)
   if (exchange[1] != "") qry <- paste0(qry, "&exchange=", exchange)
