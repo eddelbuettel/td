@@ -22,7 +22,6 @@ fun_statistics <- function(sym,
                            apikey) {
 
   if (missing(apikey)) apikey <- .get_apikey()
-  as <- match.arg(as)
 
   qry <- paste0(.funstatisticssurl, "?",
                 "&apikey=", apikey)
