@@ -6,7 +6,7 @@
 \section{Changes in version 0.0.6 (2022-01-26)}{
   \itemize{
     \item Correct one equality comparison by wrapping in \code{all()} to
-    ensura length-one logical expression is created
+    ensure a length-one logical expression is created
   }
 }
 
