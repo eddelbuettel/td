@@ -1,3 +1,7 @@
+2022-12-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3
+
 2022-02-03  Kenneth Rose  <kennethrose82@gmail.com>
 
 	* Fixed bug in R/fun_statistics.R
