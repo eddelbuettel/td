@@ -3,8 +3,9 @@ Type: Package
 Title: Access to the 'twelvedata' Financial Data API
 Version: 0.0.6.2
 Date: 2022-01-26
-Author: Dirk Eddelbuettel and Kenneth Rose
-Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Authors@R: c(person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
+                    comment = c(ORCID = "0000-0001-6419-907X")),
+             person("Kenneth", "Rose", role = "ctb"))
 Description: The 'twelvedata' REST service offers access to current and historical
  data on stocks, standard as well as digital 'crypto' currencies, and other financial
  assets covering a wide variety of course and time spans. See <https://twelvedata.com/>
