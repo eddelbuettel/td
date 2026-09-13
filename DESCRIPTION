@@ -1,8 +1,8 @@
 Package: td
 Type: Package
 Title: Access to the 'twelvedata' Financial Data API
-Version: 0.0.6.2
-Date: 2022-01-26
+Version: 0.0.7
+Date: 2026-09-13
 Authors@R: c(person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
                     comment = c(ORCID = "0000-0001-6419-907X")),
              person("Kenneth", "Rose", role = "ctb"))

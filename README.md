@@ -2,8 +2,9 @@
 ## td: R Access to twelvedata
 
 [![CI](https://github.com/eddelbuettel/td/workflows/ci/badge.svg)](https://github.com/eddelbuettel/td/actions?query=workflow%3Aci)
-[![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://opensource.org/license/gpl-2-0)
 [![CRAN](https://www.r-pkg.org/badges/version/td)](https://cran.r-project.org/package=td)
+[![r-universe](https://eddelbuettel.r-universe.dev/badges/td)](https://eddelbuettel.r-universe.dev/td)
 [![Dependencies](https://tinyverse.netlify.app/badge/td)](https://cran.r-project.org/package=td)
 [![Downloads](https://cranlogs.r-pkg.org/badges/td?color=brightgreen)](https://www.r-pkg.org/pkg/td)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/td)](https://github.com/eddelbuettel/td)

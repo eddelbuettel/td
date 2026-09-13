@@ -3,6 +3,15 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/td/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/td/issues/#1}{##1}}
 
+\section{Changes in version 0.0.7 (2026-09-13)}{
+  \itemize{
+    \item Added \code{fun_statistics} and \code{fun_profile} function
+    \item Expanded README.md with additional badges, and updated URLs
+    \item Updated continuous integration multiple times
+    \item Switched to Authors@R
+  }
+}
+
 \section{Changes in version 0.0.6 (2022-01-26)}{
   \itemize{
     \item Correct one equality comparison by wrapping in \code{all()} to
